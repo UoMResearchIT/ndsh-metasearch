@@ -1,0 +1,8 @@
+cleantext==1.1.4
+fastapi==0.92.0
+pandas==1.5.3
+pydantic==1.10.4
+sentence_transformers==2.2.2
+torch==1.13.1
+pyunpack==0.3
+patool==1.12
