@@ -186,7 +186,7 @@ class Searcher:
         
     def embed_col(self, embed_col:str="abstract", **kwargs) -> None:
         '''embedding the text in the column, pickle the dataframe'''
-        embeddings = self.model.encode(self.df.abstract.tolist(), show_progress_bar=True, **kwargs)
+        embeddings = self.model.encode(self.df[embed_col].tolist(), show_progress_bar=True, **kwargs)
         self.df[f'{embed_col}_emb'] = embeddings.tolist()
         plk_fn = self.__get_emb_df_fp(col=embed_col)
         self.df.to_pickle(plk_fn)
