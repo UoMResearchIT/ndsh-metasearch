@@ -4,9 +4,11 @@ WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
 
-RUN \
-  apk --update --no-cache add p7zip && \
-  rm -rf /var/cache/apk/* /tmp/*
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends p7zip-full && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    7z -h
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
